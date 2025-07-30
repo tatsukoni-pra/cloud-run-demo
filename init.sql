@@ -1,6 +1,9 @@
 -- データベースを作成
 CREATE DATABASE IF NOT EXISTS demo_database CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
 
+-- 作成したデータベースを使用
+USE demo_database;
+
 -- テーブルを作成
 CREATE TABLE  IF NOT EXISTS demo_table (
     id INT PRIMARY KEY AUTO_INCREMENT,
