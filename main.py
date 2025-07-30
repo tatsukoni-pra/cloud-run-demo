@@ -11,7 +11,7 @@ def get_demo_data():
         host=os.environ.get('DB_HOST', 'localhost'),
         port=int(os.environ.get('DB_PORT', 3306)),
         user=os.environ.get('DB_USER', 'root'),
-        password=os.environ.get('DB_PASSWORD', ''),
+        password=os.environ.get('DB_PASS', ''),
         database=os.environ.get('DB_NAME', 'demo_database'),
         charset='utf8mb4',
         cursorclass=pymysql.cursors.DictCursor
