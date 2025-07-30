@@ -1,0 +1,31 @@
+services:
+  web:
+    container_name: web
+    build: .
+    ports:
+      - "8080:8080"
+    environment:
+      - PORT=8080
+      - DB_HOST=mysql
+      - DB_PORT=3306
+      - DB_NAME=demo_database
+      - DB_USER=demo_user
+      - DB_PASSWORD=demopassword
+
+  # MySQLデータベース
+  mysql:
+    container_name: mysql
+    image: mysql:8.0
+    environment:
+      - MYSQL_ROOT_PASSWORD=root
+      - MYSQL_DATABASE=demo_database
+      - MYSQL_USER=demo_user
+      - MYSQL_PASSWORD=demopassword
+    ports:
+      - "3306:3306"
+    volumes:
+      - mysql_data:/var/lib/mysql
+      - ./init.sql:/docker-entrypoint-initdb.d/init.sql
+
+volumes:
+  mysql_data:
