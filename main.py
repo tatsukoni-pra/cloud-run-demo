@@ -1,5 +1,6 @@
 import os
 import pymysql
+import requests
 from flask import Flask, jsonify
 
 app = Flask(__name__)
@@ -22,6 +23,12 @@ def get_demo_data():
             cursor.execute("SELECT * FROM demo_table")
             data = cursor.fetchall()
             return jsonify(data)
+
+@app.route("/ip-check")
+def ip_check():
+    url = 'http://checkip.dyndns.com/'
+    res = requests.get(url)
+    return res.text
 
 if __name__ == "__main__":
     app.run(debug=True, host="0.0.0.0", port=int(os.environ.get("PORT", 8080)))
