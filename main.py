@@ -26,7 +26,7 @@ def get_demo_data():
 
 @app.route("/ip-check")
 def ip_check():
-    url = 'http://checkip.dyndns.com/'
+    url = 'https://inet-ip.info/ip'
     res = requests.get(url)
     return res.text
 
